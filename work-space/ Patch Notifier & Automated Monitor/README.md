@@ -1,4 +1,4 @@
-# 🎮 BDO Patch Notifier & Automated Monitor
+#  BDO Patch Notifier & Automated Monitor
 
 An automation project for monitoring **Black Desert Online (Global Lab)** updates and sending notifications to the Lolka chat.
 
@@ -14,7 +14,7 @@ This reduces the need to monitor game news manually and helps prevent previously
 
 ---
 
-## 🛠️ Tools and Technologies
+##  Tools and Technologies
 
 - **Make (Integromat)** — building and configuring the automation scenario.
 - **HTTP (GET/POST)** — retrieving website data and sending notifications.
@@ -25,7 +25,7 @@ This reduces the need to monitor game news manually and helps prevent previously
 
 ---
 
-## 🧪 QA & Testing
+##  QA & Testing
 
 ### 1. Data Extraction and Validation
 
@@ -51,7 +51,7 @@ During testing, I identified an issue that caused the same publication to be sen
 
 ---
 
-## 📸 Project Demo
+##  Project Demo
 
 ### 1. Automation Scenario in Make
 
@@ -67,11 +67,11 @@ During testing, I identified an issue that caused the same publication to be sen
 
 ---
 
-## 📌 Project Type
+##  Project Type
 
 Personal project / Low-code automation
 
-## 👩‍💻 My Contribution
+##  My Contribution
 
 - Defined the automation logic and processing flow.
 - Configured the Make scenario with the assistance of an AI assistant.

@@ -1,78 +1,80 @@
 # 🎮 BDO Patch Notifier & Automated Monitor
 
-Автоматизация мониторинга обновлений **Black Desert Online (Global Lab)** и доставки уведомлений в чат Lolka.
+An automation project for monitoring **Black Desert Online (Global Lab)** updates and sending notifications to the Lolka chat.
 
-Это личный проект, который я разработала и настроила в Make при поддержке ИИ-ассистента. Я определила логику работы автоматизации, проверяла её поведение, выявила проблему с дублированием сообщений и доработала механизм проверки ранее обработанных публикаций.
-
----
-
-## 🎯 Какую задачу решает проект
-
-Сценарий автоматически проверяет официальный сайт игры по расписанию, получает информацию о новых публикациях, проверяет их наличие в базе данных и отправляет уведомление в чат, если публикация ещё не обрабатывалась.
-
-Это позволяет сократить необходимость вручную отслеживать игровые новости и предотвратить повторную отправку уже обработанных уведомлений.
+This is a personal project that I designed and configured in Make with the assistance of an AI assistant. I defined the automation logic, tested its behavior, identified a duplicate notification issue, and improved the mechanism for checking previously processed publications.
 
 ---
 
-## 🛠️ Инструменты и технологии
+## 🎯 Project Goal
 
-- **Make (Integromat)** — создание и настройка сценария автоматизации.
-- **HTTP (GET/POST)** — получение данных с сайта и отправка уведомлений.
-- **Text Parser / RegEx** — извлечение необходимых данных из HTML.
-- **Make Data Store** — хранение идентификаторов обработанных публикаций и проверка на дубликаты.
-- **Webhooks** — передача данных для отправки уведомлений.
-- **JSON** — формат передаваемых данных.
+The scenario checks the official game website on a schedule, retrieves publication data, checks whether each publication has already been processed, and sends a notification to Lolka if it is new.
+
+This reduces the need to monitor game news manually and helps prevent previously processed publications from being sent repeatedly.
+
+---
+
+## 🛠️ Tools and Technologies
+
+- **Make (Integromat)** — building and configuring the automation scenario.
+- **HTTP (GET/POST)** — retrieving website data and sending notifications.
+- **Text Parser / RegEx** — extracting required data from HTML.
+- **Make Data Store** — storing processed publication IDs and checking for duplicates.
+- **Webhooks** — transferring data for notification delivery.
+- **JSON** — data exchange format.
 
 ---
 
 ## 🧪 QA & Testing
 
-### 1. Проверка и извлечение данных
+### 1. Data Extraction and Validation
 
-Извлечение идентификатора публикации (`boardNo`) из HTML-страницы и использование его для определения ранее обработанных и новых публикаций.
+Extracting the publication identifier (`boardNo`) from the HTML page and using it to distinguish new publications from previously processed ones.
 
-### 2. Проверка на дубликаты
+### 2. Duplicate Prevention
 
-Использование Make Data Store для хранения идентификаторов обработанных публикаций. Проверка наличия записи позволяет пропускать публикации, которые уже были обработаны.
+Using Make Data Store to store identifiers of processed publications. Checking whether an identifier already exists allows the scenario to skip previously processed publications.
 
-### 3. Проверка взаимодействия компонентов
+### 3. Integration Testing
 
-Проверка последовательности обработки данных: получение информации с сайта, извлечение идентификатора публикации, проверка базы данных и отправка уведомления в Lolka.
+Checking the data processing flow across the main components:
 
-### 4. Выявление и исправление дефекта
+1. Retrieve data from the source website.
+2. Extract the publication identifier.
+3. Check the stored publication IDs.
+4. Filter out previously processed publications.
+5. Send a notification to Lolka.
 
-Во время тестирования я обнаружила, что одна и та же публикация могла отправляться повторно. Я доработала логику проверки ранее обработанных публикаций и повторно протестировала сценарий, чтобы убедиться, что проблема с дублированием устранена в проверенных условиях.
+### 4. Defect Identification and Fix
 
----
-
-## 📸 Демонстрация проекта
-
-### 1. Сценарий автоматизации в Make
-
-![Схема сценария](image3.png)
-
-*Последовательность обработки данных: расписание → HTTP-запрос → парсинг → проверка базы данных → фильтрация повторов → отправка уведомления.*
-
-### 2. Результат в чате Lolka
-
-![Пример уведомления в чате](image.png)
-
-*Пример уведомления об обновлении игры, доставленного в чат.*
+During testing, I identified an issue that caused the same publication to be sent repeatedly. I improved the logic for checking previously processed publications and tested the scenario again to verify that duplicate notifications stopped under the conditions checked.
 
 ---
 
-📌 Тип проекта
+## 📸 Project Demo
 
-Личный проект / Low-code automation
+### 1. Automation Scenario in Make
 
-👩‍💻 Мой вклад
+![Automation scenario](image3.png)
 
-Определила логику работы автоматизации.
+*Data processing flow: schedule → HTTP request → parsing → Data Store lookup → duplicate filtering → notification delivery.*
 
-Настроила сценарий в Make при поддержке ИИ-ассистента.
+### 2. Notification in Lolka
 
-Проверяла работу отдельных этапов и всего сценария.
+![Example notification in Lolka](image.png)
 
-Выявила проблему с повторной отправкой уведомлений.
+*Example of a game update notification delivered to the Lolka chat.*
 
-Доработала механизм проверки ранее обработанных публикаций и проверила результат.
+---
+
+## 📌 Project Type
+
+Personal project / Low-code automation
+
+## 👩‍💻 My Contribution
+
+- Defined the automation logic and processing flow.
+- Configured the Make scenario with the assistance of an AI assistant.
+- Tested individual steps and the overall scenario.
+- Identified the duplicate notification issue.
+- Improved the duplicate-checking logic and verified the result.

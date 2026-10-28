@@ -6,7 +6,7 @@ This is a personal project that I designed and configured in Make with the assis
 
 ---
 
-## 🎯 Project Goal
+##  Project Goal
 
 The scenario checks the official game website on a schedule, retrieves publication data, checks whether each publication has already been processed, and sends a notification to Lolka if it is new.
 
